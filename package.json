@@ -34,12 +34,11 @@
     ]
   },
   "scripts": {
-    "vscode:prepublish": "npm run compile",
-    "compile": "vite build --config vite.config.extension.ts",
     "lint": "eslint \"src/**/*.ts\"",
-    "watch": "tsc -w -p ./",
-    "dev": "vite",
-    "build": "vite build"
+    "vscode:prepublish": "npm run build:extension",
+    "build:extension": "vite build --config vite.config.extension.ts",
+    "dev:webview": "vite",
+    "build:webview": "vite build"
   },
   "devDependencies": {
     "@types/node": "^18",
