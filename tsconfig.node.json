@@ -9,6 +9,6 @@
     "sourceMap": true,
     "outDir": "out"
   },
-  "include": ["vite.config.ts"],
+  "include": ["vite.config.ts", "vite.config.extension.ts"],
   "exclude": ["node_modules", ".vscode-test"]
 }
