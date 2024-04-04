@@ -1,34 +1,38 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { FormBuilder } from "@formio/react";
+import "formiojs/dist/formio.full.css";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [schema, setSchema] = useState({});
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="app-container">
+      <FormBuilder
+        form={{
+          display: "form",
+          components: [
+            {
+              label: "Email",
+              tableView: true,
+              key: "email",
+              type: "email",
+              input: true,
+            },
+            {
+              label: "Password",
+              tableView: false,
+              key: "password",
+              type: "password",
+              input: true,
+              protected: true,
+            },
+          ],
+        }}
+        onChange={setSchema}
+      />
+      <pre>{JSON.stringify(schema)}</pre>
+    </div>
   );
 }
 
