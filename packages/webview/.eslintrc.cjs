@@ -7,7 +7,7 @@ module.exports = {
     "plugin:react-hooks/recommended",
   ],
   ignorePatterns: ["media", "dist", ".eslintrc.cjs"],
-  env: { browser: true, es2020: true },
+  env: { browser: true, es2022: true },
   parser: "@typescript-eslint/parser",
   plugins: ["@typescript-eslint", "react-refresh"],
   rules: {
