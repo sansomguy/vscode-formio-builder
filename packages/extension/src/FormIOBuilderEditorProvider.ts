@@ -42,8 +42,14 @@ export class FormIOBuilderEditorProvider
     // Setup initial content for the webview
     webviewPanel.webview.options = {
       enableScripts: true,
+      localResourceRoots: [
+        vscode.Uri.joinPath(this.context.extensionUri, "media"),
+      ],
     };
-    webviewPanel.webview.html = this.getHtmlForWebview(webviewPanel.webview);
+    webviewPanel.webview.html = this.getHtmlForWebview(
+      webviewPanel.webview,
+      document
+    );
 
     function updateWebview() {
       const message: FileUpdate = {
@@ -89,7 +95,10 @@ export class FormIOBuilderEditorProvider
   /**
    * Get the static html used for the editor webviews.
    */
-  private getHtmlForWebview(webview: vscode.Webview): string {
+  private getHtmlForWebview(
+    webview: vscode.Webview,
+    document: vscode.TextDocument
+  ): string {
     // // Use a nonce to whitelist which scripts can be run
     const scriptUri = webview.asWebviewUri(
       vscode.Uri.joinPath(this.context.extensionUri, "media", "index.js")
@@ -109,10 +118,14 @@ export class FormIOBuilderEditorProvider
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link href="${stlyesUri}" nonce="${webview.cspSource}" rel="stylesheet" />
 		<title>FormIO Builder</title>
+    <style>
+      ${this.getFontFaceCss(webview)}
+    </style>
 		</head>
 		<body>
 			<div id="root">
 			</div>
+      <script>window.initialDocumentJson = ${document.getText()};</script>
 			<script type="module" nonce="${nonce}" src="${scriptUri}"></script>
 		</body>
 		</html>
@@ -134,5 +147,38 @@ export class FormIOBuilderEditorProvider
     );
 
     return vscode.workspace.applyEdit(edit);
+  }
+
+  private getFontFaceCss(webview: vscode.Webview): string {
+    const getFontPath = (fontName: string) => {
+      return webview.asWebviewUri(
+        vscode.Uri.joinPath(
+          this.context.extensionUri,
+          "media",
+          "fonts",
+          fontName
+        )
+      );
+    };
+
+    const fontFaceCss = /*css*/ `
+    @font-face {
+      font-family: "FontAwesome";
+      src: url("${getFontPath("fontawesome-webfont.eot")}");
+      src: url("${getFontPath("fontawesome-webfont.eot")}")
+          format("embedded-opentype"),
+        url("${getFontPath("fontawesome-webfont.woff2")}")
+          format("woff2"),
+        url("${getFontPath("fontawesome-webfont.woff")}")
+          format("woff"),
+        url("${getFontPath("fontawesome-webfont.ttf")}")
+          format("truetype"),
+        url("${getFontPath("fontawesome-webfont.svg")}")
+          format("svg");
+      font-weight: normal;
+      font-style: normal;
+    }`;
+
+    return fontFaceCss;
   }
 }

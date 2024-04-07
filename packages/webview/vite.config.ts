@@ -8,6 +8,7 @@ export default defineConfig({
     outDir: "../extension/media",
     minify: false,
     sourcemap: true,
+    copyPublicDir: true,
     rollupOptions: {
       output: {
         assetFileNames: "[name].[ext]",

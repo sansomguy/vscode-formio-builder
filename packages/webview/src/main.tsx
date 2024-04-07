@@ -1,6 +1,7 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import App from "./App.js";
+import "formiojs/dist/formio.full.css";
 import "./index.css";
 import { VSCodeProvider } from "./vscodeAPI/context.js";
 

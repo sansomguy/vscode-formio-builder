@@ -1,4 +1,23 @@
-@charset "UTF-8";/* ===============================
+@charset "UTF-8";.formbuilder {
+  display: flex;
+  flex-direction: row;
+}
+
+.formbuilder > .formcomponents {
+  background-color: var(--color-background-accent);
+  padding: var(--size-padding);
+}
+
+.formbuilder > .formarea {
+  padding: var(--size-padding);
+}
+
+.formbuilder div[ref="sidebar-container"] {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+/* ===============================
 =            Choices            =
 =============================== */
 .choices {
@@ -4623,41 +4642,22 @@ span[role=link] {
 .builder-component-selected {
   border: 2px dashed #919191;
   outline: none !important;
-}.formbuilder {
-  display: flex;
-  flex-direction: row;
-}
-
-.formbuilder > .formcomponents {
-  background-color: var(--color-background-accent);
-  padding: var(--size-padding);
-}
-
-.formbuilder > .formarea {
-  padding: var(--size-padding);
-}
-
-.formbuilder div[ref="sidebar-container"] {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-}
-:root {
+}:root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   --color-primary: #646cff;
   --color-primary-darker: #535bf2;
-  --color-background: #242424;
+  --color-background: var(--vscode-editor-background);
   --color-background-accent: #333333;
   --size-padding: 16px;
 
-  --color-text: #f9f9f9;
+  --color-text: var(--vscode-editor-foreground);
 
   color-scheme: light dark;
-  color: var(--color-text);
-  background-color: var(--color-background);
+  color: var(--vscode-editor-foreground);
+  background-color: var(--vscode-editor-background);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

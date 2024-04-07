@@ -5,15 +5,15 @@
 
   --color-primary: #646cff;
   --color-primary-darker: #535bf2;
-  --color-background: #242424;
+  --color-background: var(--vscode-editor-background);
   --color-background-accent: #333333;
   --size-padding: 16px;
 
-  --color-text: #f9f9f9;
+  --color-text: var(--vscode-editor-foreground);
 
   color-scheme: light dark;
-  color: var(--color-text);
-  background-color: var(--color-background);
+  color: var(--vscode-editor-foreground);
+  background-color: var(--vscode-editor-background);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
