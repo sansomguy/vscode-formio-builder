@@ -1,6 +1,5 @@
 {
   "name": "formio-builder",
-  "publisher": "digitise",
   "description": "Build FormIO schemas with the FormBuilder in vscode.",
   "version": "0.0.1",
   "private": true,

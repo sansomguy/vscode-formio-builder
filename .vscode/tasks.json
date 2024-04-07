@@ -16,6 +16,22 @@
       "group": {
         "kind": "build",
         "isDefault": false
+      },
+      "dependsOn": ["webview: compile"]
+    },
+    {
+      "label": "webview: compile",
+      "path": "packages/webview",
+      "type": "npm",
+      "script": "compile",
+      "problemMatcher": "$tsc",
+      "isBackground": false,
+      "presentation": {
+        "reveal": "always"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": false
       }
     },
     {

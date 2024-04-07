@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "compile": "npm run build"
   },
   "dependencies": {
     "@formio/react": "^5.3.0-rc.3",
