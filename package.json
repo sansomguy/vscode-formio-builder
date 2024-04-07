@@ -1,24 +1,10 @@
 {
-  "name": "vscode-formio-builder",
+  "name": "formio-builder",
+  "publisher": "digitise",
+  "description": "Build FormIO schemas with the FormBuilder in vscode.",
   "version": "0.0.1",
   "private": true,
   "workspaces": [
     "packages/*"
-  ],
-  "devDependencies": {
-    "@types/node": "^18",
-    "@types/react": "^18.2.74",
-    "@types/react-dom": "^18.2.23",
-    "@types/vscode": "^1.88.0",
-    "@types/vscode-webview": "^1.57.0",
-    "@typescript-eslint/eslint-plugin": "^6.7.0",
-    "@typescript-eslint/parser": "^6.7.0",
-    "@vitejs/plugin-react": "^4.2.1",
-    "eslint": "^8.26.0",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.6",
-    "typescript": "^5.4.2",
-    "vite": "^5.2.7",
-    "vite-plugin-singlefile": "^2.0.1"
-  }
+  ]
 }
